@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/public/css/fonts.css">
+    <script src="/public/js/script.js"></script>
+    <title>Welcome</title>
+</head>
+<style>
+    .table-wrapper {
+        margin-top: 50px;
+    }
+
+    .student-img {
+        width: 40px;
+        height: 40px;
+        background-color: #0c7db1;
+    }
+
+    .add-student-form {
+        margin-top: 50px;
+    }
+    input[type=text], select {
+        width: 70%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=number], select {
+        width: 70%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=email], select {
+        width: 70%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    #option {
+        width: 70%;
+        padding: 12px 10px;
+        margin: 8px 0;
+        display: inline-block;
+        height: 0.2%;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type=file], select {
+        width: 20%;
+        padding: 12px 20px;
+        background-color: #0c7db1;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    
+    button[type=submit] {
+        width: 70%;
+        background-color: #0c1622;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button[type=submit]:hover {
+        background-color: #f2f2f2;
+        color: #0c7db1;
+    }
+
+    .contain {
+        text-align: center;
+        border-radius: 5px;
+        background-color: #0c7db1;
+        padding: 10px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+    }
+    label {
+        color: #ccc;
+    }
+</style>
+<body>
+<div>
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1" ><a href="/">JKUAT Bursaries</a></span>
+        <a class="float-right" href="/add" title="Add a New Student">Apply for a Bursary</a>
+    </nav>
+    <div class="contain">
+        <% if (message != '') { %>
+            <p class="text-center text-danger"><%= message %></p>
+        <% } %>
+        <form class="add-student-form" action="" method="post" enctype="multipart/form-data">
+            
+                    <input type="text" class="form-control" name="name" id="name" placeholder=" Name" required>
+                
+                    <input type="text" class="form-control" name="reg_no" id="reg_no" placeholder="Registration Number" required>
+               
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+                
+                    <input type="number" class="form-control" name="amount" id="amount" placeholder="Amount" required>
+                
+                    <select name="options" class="form-control" required id="option">
+                        <option selected disabled>Choose Student Type</option>
+                        <option>Government</option>
+                        <option>Self</option>
+                    </select>
+                    <br>
+                    <textarea rows="4" cols="119" name="reasons" placeholder="Give your reason(s)"></textarea><br>
+                
+                    <label for="student-img"><b>Upload ID Image</b></label>
+                    <input type="file" name="image" id="student-img" class="" required><br>
+              
+            <button type="submit">Apply for a Bursary </button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

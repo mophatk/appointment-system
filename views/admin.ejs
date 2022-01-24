@@ -1,0 +1,44 @@
+<% include partials/header.ejs %>
+    <div class="table-wrapper">
+        <% if (students.length > 0) { %>
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Registration Number</th>
+                        <th scope="col">Student Type</th>
+                        <th scope="col">Reasons</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% students.forEach((student, index) => { %>
+                        <tr>
+                            <<th scope="row"><%= student.id %></th>
+                            <td><img src="/assets/img/<%= student.image %>" class="rounded-circle student-img" alt=""></td>
+                            <td><%= student.name %></td>
+                            <td><%= student.reg_no %></td>
+                            <td><%= student.options %></td>
+                            <td><%= student.reasons %></td>
+                            <td><%= student.amount %></td>
+                            <td><%= student.email %></td>
+                            <td>
+                                <a href="student/approve/<%= student.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Approve</a>
+                                <a href="student/delete/<%= student.id %>" class="btn btn-sm btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">No students found. Go <a href="/student/add" >here</a> to add students.</p>
+        <% } %>
+    </div>
+    
+</div>
+</body>
+</html>
